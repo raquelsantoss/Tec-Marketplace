@@ -15,3 +15,4 @@ caso prefira outro nome.
 ## **OBS:**
 - Caso cadatre um produto e a imagem não apareça, dê um refresh na pasta ```image```. 
 - Para que a imagem apareça nos produtos do Marketplace é necessário estar com o Admin Portal rodando.
+- O Admin Portal está configurado na porta 8081 e o Marketplace 8080.
