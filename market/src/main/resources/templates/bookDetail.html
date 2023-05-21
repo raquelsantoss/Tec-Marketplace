@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header"/>
+
+<body>
+<div th:replace="common/header :: navbar"/>
+
+<div class="container">
+    <div class="row" style="margin-bottom: -100px;">
+        <div class="col-xs-8">
+            <h2 class="section-headline">
+                <h2 class="section-headline">
+                    <span th:text="${user}? ${#strings.toUpperCase(user.username)} : 'Produtos'"></span>
+                </h2>
+            </h2>
+        </div>
+        <div class="col-xs-4">
+
+        </div>
+    </div>
+    <hr
+
+
+    
+    <form th:action="@{/shoppingCart/addItem}" method="post">
+    	<input hidden="hidden" th:field="*{book.id}" />
+    	<div class="row" style="margin-top: 120px;">
+    		<div class="col-xs-3">
+    			<a th:href="@{/bookshelf}">Voltar para lista de produtos</a><br/>
+    			<img class="img-responsive shelf-book" th:src="#{adminPath}+@{/image/book/}+${book.id}+'.png'" />
+    		</div>
+    		
+    		<div class="col-xs-9">
+    			<h3 th:text="${book.title}">Título do produto</h3>
+    			<div class="row">
+    				<div class="col-xs-5">
+    					<p><strong>Empresa Parceira: </strong><span th:text="${book.publisher}"></span></p>
+    					<p><strong>Data de publicação: </strong><span th:text="${book.publicationDate}"></span></p>
+    					<p><strong>Categoria: </strong><span th:text="${book.category}"></span></p>
+    					<p><strong>Peso do produto: </strong><span th:text="${book.shippingWeight}"></span> UN</p>
+    				</div>
+    				
+    				<div class="col-xs-7">
+    					<div class="panel panel-default" style="border-width: 5px; margin-top: 20px;">
+    						<div class="panel-body">
+    							<div class="row">
+    								<div class="col-xs-6">
+    									<h4>Nosso Preço: <span style="color:#db3208;">R$<span th:text="${book.ourPrice}"></span></span></h4>
+    									<p>Preço Original: <span style="text-decoration: line-through">R$<span th:text="${book.listPrice}"></span></span></p>
+    									<p>Você economiza: $<span th:text="${#numbers.formatDecimal((book.listPrice - book.ourPrice), 0, 'COMMA', 2, 'POINT' )}"></span></p>
+    									<span>Qtd: </span>
+    									<select name="qty">
+    										<option th:each="qty : ${qtyList}" th:value="${qty}" th:text="${qty}">
+    										</option>
+    									</select>
+    								</div>
+    								<div class="col-xs-6">
+    									<h4 th:if="*{book.inStockNumber&gt;10}" style="color: green">Em estoque</h4>
+    									<h4 th:if="*{book.inStockNumber&lt;10 and book.inStockNumber&gt;0}" style="color: green">Apenas <span th:text="${book.inStockNumber}"> In Stock</span></h4>
+    									<h4 th:if="*{book.inStockNumber==0}" style="color:darkred;">Indisponível</h4>
+    									<button type="submit" class="btn btn-warning" style="color:black;border:1px solid black; padding: 10px 40px 10px 40px;">Adicionar ao carrinho</button>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			
+    			<hr/>
+    			<p th:text="${book.description}"></p>
+    		</div>
+    	</div>
+    </form>
+</div>
+<!-- end of container -->
+
+
+<div th:replace="common/header :: body-bottom-scripts"/>
+</body>
+</html>
