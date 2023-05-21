@@ -4,7 +4,7 @@
 
 ## Como rodar o projeto:
 
-- Primeiramente é preciso configurar o banco de dados da seguinte forma:
+- Primeiramente é preciso configurar da seguinte forma:
 - [ ] Abrir o application.properties e no ```spring.mail.username=``` e colocar o seu email para receber um token e acessar a sua conta.
  **Para que a nossa aplicação se conecte a sua conta Gmail é necessário ir em: Gerir conta Google -> Segurança -> Ativar autenticação de dois fatores -> ir na parte inferior da pág. e apertar em
 Senhas de App -> copiar senha gerada**.
