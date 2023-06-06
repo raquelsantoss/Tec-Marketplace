@@ -521,4 +521,14 @@ public class HomeController {
 		model.addAttribute("classActiveEdit", true);
 		return "myProfile";
 	}
+
+	@RequestMapping("/cart")
+	public String seeCart(Model model) {
+		if (model.containsAttribute("user")) {
+			return "cart";
+		}
+		else {
+			return login(model);
+		}
+	}
 }
