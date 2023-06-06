@@ -523,7 +523,9 @@ public class HomeController {
 	}
 
 	@RequestMapping("/cart")
-	public String seeCart(Model model) {
+	public String cart(
+		Model model
+		) {
 		if (model.containsAttribute("user")) {
 			return "cart";
 		}
