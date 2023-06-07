@@ -154,6 +154,7 @@ public class HomeController {
 		model.addAttribute("user", user);
 		model.addAttribute("userPaymentList", user.getUserPaymentList());
 		model.addAttribute("userShippingList", user.getUserShippingList());
+		model.addAttribute("cart", user.getCart());
 		/* model.addAttribute("orderList", user.getOrderList()); */
 		
 		UserShipping userShipping = new UserShipping();
@@ -520,5 +521,19 @@ public class HomeController {
 
 		model.addAttribute("classActiveEdit", true);
 		return "myProfile";
+	}
+
+	@RequestMapping("/cart")
+	public String cart(
+			Model model,
+			Principal principal
+			) {
+		User user = userService.findByUsername(principal.getName());
+		model.addAttribute("user", user);
+		model.addAttribute("userPaymentList", user.getUserPaymentList());
+		model.addAttribute("userShippingList", user.getUserShippingList());
+		model.addAttribute("cart", user.getCart());
+
+		return "cart";
 	}
 }

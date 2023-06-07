@@ -52,7 +52,7 @@
 						</form>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Carrinho</a></li>
+						<li><a sec:authorize="isAuthenticated()" th:href="@{/cart}">Carrinho</a></li>
 						<li><a sec:authorize="isAuthenticated()" th:href="@{/myProfile}">Minha Conta</a></li>
 						<li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
 					</ul>
