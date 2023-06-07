@@ -526,11 +526,6 @@ public class HomeController {
 	public String cart(
 		Model model
 		) {
-		if (model.containsAttribute("user")) {
-			return "cart";
-		}
-		else {
-			return login(model);
-		}
+		return "cart";
 	}
 }

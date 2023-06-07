@@ -1,7 +1,16 @@
 <!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <h1>CartPage</h1>
-    </body>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar" />
+
+	<div class="container">
+        <h1>Cart</h1>
+	</div>
+	<!-- end of container -->
+
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+</body>
 </html>
