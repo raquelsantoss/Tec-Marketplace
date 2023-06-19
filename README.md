@@ -12,6 +12,7 @@ Senhas de App -> copiar a senha gerada**.
 - [ ] Acessar o MySQL Workbench e criar um banco chamado **marketdatabase** (o nome precisa ser exatamente esse) para que as tabelas sejam geradas ou mudar o ```spring.datasource.url=```
 caso prefira outro nome.
 - Para acessar o Admin Portal, ultilize como usuário e senha a palavra: **admin**.
+- Quando cadastrar uma imagem no produto, colocar no formato png e escolher imagens pequenas.
 ## **OBS:**
 - Caso cadastre um produto e a imagem não apareça, dê um refresh na pasta ```image``` do Admin Portal. 
 - Para que a imagem apareça nos produtos do Marketplace é necessário estar com o Admin Portal rodando.
